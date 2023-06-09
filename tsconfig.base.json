@@ -19,8 +19,7 @@
       "@nx-eztrack/modules/shell": ["modules/shell/src/index.ts"],
       "@nx-eztrack/modules/spending-report": [
         "modules/spending-report/src/index.ts"
-      ],
-      "@nx-eztrack/modules/ui": ["modules/ui/src/index.ts"]
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
