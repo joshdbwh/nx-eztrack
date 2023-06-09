@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-eztrack/modules/link": ["modules/link/src/index.ts"],
+      "@nx-eztrack/modules/shell": ["modules/shell/src/index.ts"],
+      "@nx-eztrack/modules/spending-report": [
+        "modules/spending-report/src/index.ts"
+      ],
+      "@nx-eztrack/modules/ui": ["modules/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
