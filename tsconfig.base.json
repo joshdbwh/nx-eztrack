@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nx-eztrack/modules/link": ["modules/link/src/index.ts"],
+      "@nx-eztrack/modules/shared/ui": ["modules/shared/ui/src/index.ts"],
       "@nx-eztrack/modules/shell": ["modules/shell/src/index.ts"],
       "@nx-eztrack/modules/spending-report": [
         "modules/spending-report/src/index.ts"
