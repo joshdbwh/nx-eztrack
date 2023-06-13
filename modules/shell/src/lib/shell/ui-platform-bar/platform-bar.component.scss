@@ -1,0 +1,12 @@
+@import '../../../../cosmetic/platform-bar';
+
+.platform-bar-middle {
+  flex:0 1 720px;
+  padding:0 12px;
+  justify-content:center
+}
+
+.platform-bar-right {
+  justify-content: flex-end;
+  padding-right: 8px;
+}

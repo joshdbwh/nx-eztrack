@@ -1,0 +1,38 @@
+<div class="shell">
+  <app-platform-bar (navEvent)="nav.toggle()" />
+  <mat-sidenav-container class="nav-container">
+    <mat-sidenav #nav class="nav">
+      <app-nav-list [navItems]="routes" (navEvent)="nav.close()"/>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow: hidden;">
+      <div id="content-container">
+        <mat-drawer class="left-panel" mode="side" opened>
+          <div class="mat-drawer-inner-container">
+            <mat-toolbar class="platform-bar-container sub-nav--toolbar">
+              <div *ngIf="(currentParentRoute$ | async) as route" style="display: flex; align-items: center;">
+                <app-icon [icon]="route.icon" size="large"/>
+                {{ route.title }}
+              </div>
+
+            </mat-toolbar>
+            <div class="sub-nav--body">
+              <app-nav-list style="overflow-x: hidden; overflow-y: auto;" [navItems]="childrenRoutes$ | async" />
+            </div>
+            <div class="sub-nav--footer">
+              <button mat-button class="sub-nav--footer-button">Release Notes</button>
+              <mat-divider />
+              <button mat-button class="sub-nav--footer-button">Release Notes</button>
+              <mat-toolbar class="platform-bar-container sub-nav--footer-toolbar"></mat-toolbar>
+            </div>
+          </div>
+        </mat-drawer>
+        <div class="right-panel">
+          <mat-toolbar class="platform-bar-container action-bar">{{ currentChildRoute$ | async }}</mat-toolbar>
+          <div class="outlet-shell">
+            <router-outlet />
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
