@@ -1,0 +1,2 @@
+source ~/.colorizerc
+source ~/.aliasrc

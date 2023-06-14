@@ -1,0 +1,23 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias ll='ls -lha --color=auto'
+alias l='ls -CF'
+
+alias c='clear'
+alias q='exit'
+alias h='history'
+
+alias gs='git status'
+alias gss='git status -sb'
+alias ga='git add'
+alias gb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative))%(color:reset)'"
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate -all'
+
+alias gpu="git push --set-upstream origin $(git symbolic-ref --short HEAD)"
+alias gpl="git pull origin $(git symbolic-ref --short HEAD)"
+
+
+

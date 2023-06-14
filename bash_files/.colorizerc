@@ -1,0 +1,39 @@
+# Load __git_ps1 if it's not already loaded
+# if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+#     . /usr/lib/git-core/git-sh-prompt
+# elif [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+#     . /usr/local/etc/bash_completion.d/git-prompt.sh
+# fi
+
+. /usr/local/etc/bash_completion.d/git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="auto"
+
+prompt_func() {
+    local __previous_command=$?
+
+    local BLUE="\[\033[1;34m\]"
+    local RED="\[\033[1;31m\]"
+    local GREEN="\[\033[1;32m\]"
+    local NO_COLOR="\[\033[0m\]"
+    local CYAN="\[\033[1;36m\]"  # Bold cyan
+
+    if [[ "${__previous_command}" -eq "0" ]]; then
+        ARROW="${GREEN}➜"
+    else
+        ARROW="${RED}➜"
+    fi
+
+    # Check for a .git directory or file
+    local git_dir=$(git rev-parse --git-dir 2>/dev/null)
+    if [[ -d "${git_dir}" ]]; then
+        PS1="${ARROW} ${CYAN}\W ${BLUE}git:(${RED}\$(__git_ps1 '%s')${BLUE}) ${GREEN}✗${NO_COLOR} "
+    else
+        PS1="${ARROW} ${CYAN}\W ${GREEN}✗${NO_COLOR} "
+    fi
+}
+
+PROMPT_COMMAND=prompt_func
